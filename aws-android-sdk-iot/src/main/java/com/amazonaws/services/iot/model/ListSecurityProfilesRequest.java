@@ -46,6 +46,18 @@ public class ListSecurityProfilesRequest extends AmazonWebServiceRequest impleme
 
     /**
      * <p>
+     * A filter to limit results to the security profiles that use the defined
+     * dimension.
+     * </p>
+     * <p>
+     * <b>Constraints:</b><br/>
+     * <b>Length: </b>1 - 128<br/>
+     * <b>Pattern: </b>[a-zA-Z0-9:_-]+<br/>
+     */
+    private String dimensionName;
+
+    /**
+     * <p>
      * The token for the next set of results.
      * </p>
      *
@@ -144,6 +156,69 @@ public class ListSecurityProfilesRequest extends AmazonWebServiceRequest impleme
     }
 
     /**
+     * <p>
+     * A filter to limit results to the security profiles that use the defined
+     * dimension.
+     * </p>
+     * <p>
+     * <b>Constraints:</b><br/>
+     * <b>Length: </b>1 - 128<br/>
+     * <b>Pattern: </b>[a-zA-Z0-9:_-]+<br/>
+     *
+     * @return <p>
+     *         A filter to limit results to the security profiles that use the
+     *         defined dimension.
+     *         </p>
+     */
+    public String getDimensionName() {
+        return dimensionName;
+    }
+
+    /**
+     * <p>
+     * A filter to limit results to the security profiles that use the defined
+     * dimension.
+     * </p>
+     * <p>
+     * <b>Constraints:</b><br/>
+     * <b>Length: </b>1 - 128<br/>
+     * <b>Pattern: </b>[a-zA-Z0-9:_-]+<br/>
+     *
+     * @param dimensionName <p>
+     *            A filter to limit results to the security profiles that use
+     *            the defined dimension.
+     *            </p>
+     */
+    public void setDimensionName(String dimensionName) {
+        this.dimensionName = dimensionName;
+    }
+
+    /**
+     * <p>
+     * A filter to limit results to the security profiles that use the defined
+     * dimension.
+     * </p>
+     * <p>
+     * Returns a reference to this object so that method calls can be chained
+     * together.
+     * <p>
+     * <b>Constraints:</b><br/>
+     * <b>Length: </b>1 - 128<br/>
+     * <b>Pattern: </b>[a-zA-Z0-9:_-]+<br/>
+     *
+     * @param dimensionName <p>
+     *            A filter to limit results to the security profiles that use
+     *            the defined dimension.
+     *            </p>
+     * @return A reference to this updated object so that method calls can be
+     *         chained together.
+     */
+    public ListSecurityProfilesRequest withDimensionName(String dimensionName) {
+        this.dimensionName = dimensionName;
+        return this;
+    }
+
+    /**
      * Returns a string representation of this object; useful for testing and
      * debugging.
      *
@@ -157,7 +232,9 @@ public class ListSecurityProfilesRequest extends AmazonWebServiceRequest impleme
         if (getNextToken() != null)
             sb.append("nextToken: " + getNextToken() + ",");
         if (getMaxResults() != null)
-            sb.append("maxResults: " + getMaxResults());
+            sb.append("maxResults: " + getMaxResults() + ",");
+        if (getDimensionName() != null)
+            sb.append("dimensionName: " + getDimensionName());
         sb.append("}");
         return sb.toString();
     }
@@ -169,6 +246,8 @@ public class ListSecurityProfilesRequest extends AmazonWebServiceRequest impleme
 
         hashCode = prime * hashCode + ((getNextToken() == null) ? 0 : getNextToken().hashCode());
         hashCode = prime * hashCode + ((getMaxResults() == null) ? 0 : getMaxResults().hashCode());
+        hashCode = prime * hashCode
+                + ((getDimensionName() == null) ? 0 : getDimensionName().hashCode());
         return hashCode;
     }
 
@@ -192,6 +271,11 @@ public class ListSecurityProfilesRequest extends AmazonWebServiceRequest impleme
             return false;
         if (other.getMaxResults() != null
                 && other.getMaxResults().equals(this.getMaxResults()) == false)
+            return false;
+        if (other.getDimensionName() == null ^ this.getDimensionName() == null)
+            return false;
+        if (other.getDimensionName() != null
+                && other.getDimensionName().equals(this.getDimensionName()) == false)
             return false;
         return true;
     }

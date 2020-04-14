@@ -41,6 +41,9 @@ class BehaviorJsonUnmarshaller implements Unmarshaller<Behavior, JsonUnmarshalle
             } else if (name.equals("metric")) {
                 behavior.setMetric(StringJsonUnmarshaller.getInstance()
                         .unmarshall(context));
+            } else if (name.equals("metricDimension")) {
+                behavior.setMetricDimension(MetricDimensionJsonUnmarshaller.getInstance()
+                        .unmarshall(context));
             } else if (name.equals("criteria")) {
                 behavior.setCriteria(BehaviorCriteriaJsonUnmarshaller.getInstance()
                         .unmarshall(context));

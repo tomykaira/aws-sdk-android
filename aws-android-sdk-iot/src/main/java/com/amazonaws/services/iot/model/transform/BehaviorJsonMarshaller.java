@@ -35,6 +35,11 @@ class BehaviorJsonMarshaller {
             jsonWriter.name("metric");
             jsonWriter.value(metric);
         }
+        if (behavior.getMetricDimension() != null) {
+            MetricDimension metricDimension = behavior.getMetricDimension();
+            jsonWriter.name("metricDimension");
+            MetricDimensionJsonMarshaller.getInstance().marshall(metricDimension, jsonWriter);
+        }
         if (behavior.getCriteria() != null) {
             BehaviorCriteria criteria = behavior.getCriteria();
             jsonWriter.name("criteria");
